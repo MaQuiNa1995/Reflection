@@ -12,6 +12,8 @@ import maquina.reflection.prueba.concepto.main.Personaje;
 
 /**
  * Test para prueba de concepto de testing a traves de reflection
+ * 
+ * Mas info <a href="https://stackoverflow.com/questions/11483647/how-do-i-access-private-methods-and-private-data-members-via-reflection/11484158#11484158">Aquí</a>
  */
 public class PersonajeTest {
 
