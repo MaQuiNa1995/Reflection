@@ -13,15 +13,25 @@ import maquina.reflection.prueba.concepto.main.Personaje;
 /**
  * Test para prueba de concepto de testing a traves de reflection
  * 
- * Mas info <a href="https://stackoverflow.com/questions/11483647/how-do-i-access-private-methods-and-private-data-members-via-reflection/11484158#11484158">Aquí</a>
+ * Mas info <a href=
+ * "https://stackoverflow.com/questions/11483647/how-do-i-access-private-methods-and-private-data-members-via-reflection/11484158#11484158">Aquí</a>
  */
 public class PersonajeTest {
 
+    // Hacemos las variables locales para cuando las usemos para comparar en el
+    // assert tener que cambiarlas desde solo 1 sitio
     private final String raza = "Moguri";
     private final String habilidad = "Espiral Mortal";
 
+    /**
+     * Clase a testear (Class Under Testing)
+     */
     private Personaje cut;
 
+    /**
+     * Método que limpia y deja como nuevo el objeto del que se está probando la
+     * funcionalidad
+     */
     @Before
     public void limpiarInicializarObjeto() {
 
@@ -31,7 +41,8 @@ public class PersonajeTest {
     }
 
     /**
-     * Caso de prueba en el que se accede a los setter privados de la clase {@link Personaje} - {@link Personaje#setRaza} y {@link Personaje#setHabilidad}
+     * Caso de prueba en el que se accede a un método privado de la clase
+     * {@link Personaje} - {@link Personaje#evolucionar}
      */
     @Test
     public void reflectionMetodosTest() {
@@ -65,6 +76,11 @@ public class PersonajeTest {
 
     }
 
+    /**
+     * Caso de prueba en el que se accede a los setter privados de la clase
+     * {@link Personaje} - {@link Personaje#setRaza} y
+     * {@link Personaje#setHabilidad}
+     */
     @Test
     public void reflectionSetterTest() {
 
@@ -85,11 +101,11 @@ public class PersonajeTest {
 
 	    String nuevaHabilidad = "100 Estoques";
 	    String nuevaRaza = "Viera";
-	    
+
 	    // a traves de asserts verificamos el antes del cambio
 	    Assert.assertTrue(raza.equals(cut.getRaza()));
 	    Assert.assertTrue(habilidad.equals(cut.getHabilidad()));
-	    
+
 	    // Ahora podemos setear
 	    atributoRaza.set(cut, nuevaRaza);
 	    atributoHabilidad.set(cut, nuevaHabilidad);
@@ -99,7 +115,8 @@ public class PersonajeTest {
 	    Assert.assertTrue(nuevaHabilidad.equals(cut.getHabilidad()));
 
 	    // Si se captura alguna de estas excepciones el test tiene que fallar
-	} catch (SecurityException | IllegalArgumentException | NoSuchFieldException | IllegalAccessException exception) {
+	} catch (SecurityException | IllegalArgumentException | NoSuchFieldException
+		| IllegalAccessException exception) {
 	    Assert.fail(exception.getMessage());
 	}
     }
