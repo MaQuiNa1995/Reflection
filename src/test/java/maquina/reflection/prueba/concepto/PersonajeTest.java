@@ -56,7 +56,7 @@ public class PersonajeTest {
 	    // m.invoke(d);
 
 	    // Para que eso no pase necesitas hacerle accesible
-	    metodo.setAccessible(true);
+	    metodo.setAccessible(Boolean.TRUE);
 
 	    // verificamos que antes de invocar al método el objeto tiene lo que queremos y
 	    // no se ha modificado
@@ -96,8 +96,8 @@ public class PersonajeTest {
 	    // atributoRaza.set(objetoClase,"valor");
 
 	    // los tenemos que hacer accesible
-	    atributoRaza.setAccessible(true);
-	    atributoHabilidad.setAccessible(true);
+	    atributoRaza.setAccessible(Boolean.TRUE);
+	    atributoHabilidad.setAccessible(Boolean.TRUE);
 
 	    String nuevaHabilidad = "100 Estoques";
 	    String nuevaRaza = "Viera";
